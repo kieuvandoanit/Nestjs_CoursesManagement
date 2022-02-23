@@ -7,7 +7,7 @@ import {MongooseModule} from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/UserManagerment',{
+    MongooseModule.forRoot('mongodb+srv://doankv:doan1999@doankv.s9mmf.mongodb.net/NestJS_CoursesManagement?retryWrites=true&w=majority',{
       autoCreate: true
     }),
     ConfigModule,

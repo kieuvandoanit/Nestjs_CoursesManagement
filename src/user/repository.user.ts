@@ -21,4 +21,5 @@ export class UserRepository {
     const user = await this.userModel.find();
     return user;
   }
+  
 }
