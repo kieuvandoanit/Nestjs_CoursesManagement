@@ -7,11 +7,16 @@ import {
   Res,
   HttpCode,
   BadRequestException,
+  Put,
+  Param,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { ObjectUnsubscribedError } from 'rxjs';
 import { CreateUserDto } from './dto/createUser.dto';
+import { UpdateUserDto } from './dto/updateUser.dto';
 import { User } from './interfaces/user.interface';
 import { UserService } from './user.service';
+import {ObjectId} from 'mongodb'
 
 @ApiTags('User')
 @Controller('user')
@@ -47,5 +52,10 @@ export class UserController {
     if (result.type === 'string') {
       throw new BadRequestException(result);
     }
+  }
+
+  @Put('')
+  public async update(@Body() data: UpdateUserDto, @Param() id: string):Promise<User>{
+    const _id = new ObjectId(id);
   }
 }
